@@ -4,64 +4,81 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Raíssa Lobo | Estrategista de Monetização</title>
-  <meta name="description" content="Raíssa Lobo — Estrategista de Monetização. Escolha o ponto do seu negócio que você quer resolver.">
+  <meta name="description" content="Escolha o ponto do seu negócio que precisa ser resolvido e fale com Raíssa Lobo.">
   <meta property="og:title" content="Raíssa Lobo | Estrategista de Monetização">
-  <meta property="og:description" content="Escolha o ponto do seu negócio que você quer resolver e fale comigo no WhatsApp.">
+  <meta property="og:description" content="Escolha o ponto do seu negócio que precisa ser resolvido.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://marketingdecria.com/estrategia/assets/team_00.jpeg">
   <meta name="theme-color" content="#101c36">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,600&family=Bodoni+Moda:opsz,wght@6..96,500&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,600&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
     :root{
+      color-scheme:dark;
       --bg:#101c36;
+      --surface:#172642;
+      --surface-hover:#1b2c4d;
       --text:#f3ede2;
-      --muted:#c9c2b5;
-      --button:#f3ede2;
-      --button-text:#101c36;
+      --muted:#a9adba;
       --accent:#bd6145;
-      --accent-dark:#7d2d39;
-      --border:rgba(243,237,226,.24);
+      --featured:#f3ede2;
+      --featured-text:#101c36;
+      --border:rgba(243,237,226,.12);
+      --border-strong:rgba(243,237,226,.18);
+      --shadow:0 18px 50px rgba(0,0,0,.18);
+      --radius:20px;
+      --ease:cubic-bezier(.2,.8,.2,1);
     }
 
     *{box-sizing:border-box}
-    html{background:var(--bg)}
+
+    html{
+      background:var(--bg);
+      -webkit-text-size-adjust:100%;
+    }
+
     body{
       margin:0;
       min-height:100vh;
+      min-height:100svh;
       background:var(--bg);
       color:var(--text);
-      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
       -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
     }
 
     main{
-      width:min(100%,520px);
-      margin:0 auto;
-      padding:42px 20px 34px;
+      width:min(calc(100% - 32px),560px);
       min-height:100vh;
+      min-height:100svh;
+      margin:0 auto;
+      padding:max(30px,env(safe-area-inset-top)) 0 max(28px,env(safe-area-inset-bottom));
       display:flex;
       flex-direction:column;
-      align-items:center;
     }
 
-    .profile{width:100%;text-align:center}
+    .profile{
+      text-align:center;
+      animation:enter .48s var(--ease) both;
+    }
 
     .photo{
-      width:112px;
-      height:112px;
-      border-radius:50%;
+      width:88px;
+      height:88px;
+      display:block;
+      margin:0 auto 15px;
       object-fit:cover;
       object-position:center;
-      display:block;
-      margin:0 auto 22px;
-      border:1px solid var(--border);
+      border-radius:50%;
+      border:1px solid var(--border-strong);
+      box-shadow:0 8px 28px rgba(0,0,0,.18);
     }
 
-    h1{
+    .profile-name{
       margin:0;
       display:flex;
       justify-content:center;
@@ -69,174 +86,273 @@
       gap:.18em;
       white-space:nowrap;
       font-family:"Bodoni Moda",Didot,"Times New Roman",serif;
-      font-size:clamp(2.8rem,11vw,4.25rem);
-      line-height:.92;
+      font-size:clamp(1.55rem,6.2vw,1.9rem);
+      line-height:1;
       font-weight:500;
-      letter-spacing:-.055em;
+      letter-spacing:-.045em;
     }
 
-    .first-name{color:var(--text)}
-    .last-name{
+    .profile-name .last-name{
       color:var(--accent);
       font-style:italic;
-      font-weight:500;
-      letter-spacing:-.07em;
+      letter-spacing:-.06em;
     }
 
     .role{
-      margin:12px 0 0;
-      font-family:"IBM Plex Mono",monospace;
-      font-size:.63rem;
-      line-height:1.45;
-      letter-spacing:.14em;
-      text-transform:uppercase;
+      margin:8px 0 0;
       color:var(--muted);
+      font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+      font-size:.62rem;
+      line-height:1.45;
+      font-weight:500;
+      letter-spacing:.13em;
+      text-transform:uppercase;
     }
 
-    .intro{
-      max-width:390px;
-      margin:24px auto 24px;
-      color:var(--text);
-      font-family:"Bodoni Moda",Didot,"Times New Roman",serif;
-      font-size:1.16rem;
-      line-height:1.35;
-      font-weight:500;
+    .decision{
+      margin:30px auto 20px;
+      text-align:center;
+      animation:enter .48s .04s var(--ease) both;
+    }
+
+    .decision h1{
+      max-width:500px;
+      margin:0 auto;
+      font-size:clamp(1.9rem,7.5vw,2.7rem);
+      line-height:1.04;
+      font-weight:600;
+      letter-spacing:-.055em;
+      text-wrap:balance;
     }
 
     .links{
-      width:100%;
       display:grid;
       gap:12px;
+      width:100%;
     }
 
-    .service-link{
-      min-height:62px;
-      width:100%;
+    .service-card{
+      --delay:0s;
+      position:relative;
+      min-height:92px;
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:16px;
-      padding:16px 18px;
-      border-radius:3px;
-      background:var(--button);
-      color:var(--button-text);
-      border:1px solid var(--button);
+      gap:18px;
+      padding:18px 18px 17px 20px;
+      overflow:hidden;
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      background:var(--surface);
+      color:var(--text);
       text-decoration:none;
-      transition:transform .16s ease,background-color .16s ease,color .16s ease,border-color .16s ease;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.025);
       -webkit-tap-highlight-color:transparent;
+      transition:
+        transform .22s var(--ease),
+        background-color .22s ease,
+        border-color .22s ease,
+        box-shadow .22s ease;
+      animation:enter .45s calc(.08s + var(--delay)) var(--ease) both;
     }
 
-    .service-link.is-featured{
-      background:var(--accent);
-      border-color:var(--accent);
-      color:#fff8f1;
+    .service-card:nth-child(1){--delay:.00s}
+    .service-card:nth-child(2){--delay:.04s}
+    .service-card:nth-child(3){--delay:.08s}
+    .service-card:nth-child(4){--delay:.12s}
+    .service-card:nth-child(5){--delay:.16s}
+
+    .service-card.is-primary{
+      min-height:102px;
+      padding-block:22px;
+      background:var(--featured);
+      color:var(--featured-text);
+      border-color:rgba(243,237,226,.72);
+      box-shadow:var(--shadow);
     }
 
-    .service-link:hover{
-      transform:translateY(-2px);
-      background:var(--accent);
-      border-color:var(--accent);
-      color:#fff8f1;
-    }
-
-    .service-link:active{transform:translateY(0)}
-
-    .service-link:focus-visible{
-      outline:3px solid rgba(189,97,69,.52);
-      outline-offset:4px;
-    }
-
-    .service-name{
-      font-family:"Bodoni Moda",Didot,"Times New Roman",serif;
-      font-size:1.16rem;
-      line-height:1.08;
-      font-weight:600;
+    .service-copy{
+      min-width:0;
+      display:block;
       text-align:left;
     }
 
-    .arrow{
-      flex:0 0 auto;
-      font-size:1.4rem;
-      line-height:1;
-      transition:transform .16s ease;
+    .problem{
+      display:block;
+      max-width:420px;
+      font-size:clamp(.98rem,3.8vw,1.08rem);
+      line-height:1.28;
+      font-weight:550;
+      letter-spacing:-.025em;
+      text-wrap:pretty;
     }
 
-    .service-link:hover .arrow{transform:translateX(3px)}
+    .service-name{
+      display:block;
+      margin-top:9px;
+      color:var(--muted);
+      font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+      font-size:.6rem;
+      line-height:1.35;
+      font-weight:500;
+      letter-spacing:.115em;
+      text-transform:uppercase;
+    }
+
+    .is-primary .service-name{
+      color:rgba(16,28,54,.58);
+    }
+
+    .arrow{
+      flex:0 0 36px;
+      width:36px;
+      height:36px;
+      display:grid;
+      place-items:center;
+      border-radius:999px;
+      background:rgba(243,237,226,.08);
+      border:1px solid rgba(243,237,226,.08);
+      font-size:1.05rem;
+      line-height:1;
+      transition:transform .22s var(--ease),background-color .22s ease,border-color .22s ease;
+    }
+
+    .is-primary .arrow{
+      background:rgba(16,28,54,.08);
+      border-color:rgba(16,28,54,.07);
+    }
+
+    .service-card:focus-visible{
+      outline:3px solid rgba(189,97,69,.55);
+      outline-offset:4px;
+    }
+
+    .service-card:active{
+      transform:scale(.985);
+    }
 
     footer{
       margin-top:auto;
-      padding-top:34px;
-      font-family:"Bodoni Moda",Didot,"Times New Roman",serif;
-      font-size:.92rem;
-      line-height:1.5;
-      letter-spacing:.16em;
-      text-transform:uppercase;
-      color:var(--text);
+      padding-top:32px;
       text-align:center;
-      opacity:.82;
+      color:var(--text);
+      font-family:"Bodoni Moda",Didot,"Times New Roman",serif;
+      font-size:.82rem;
+      line-height:1;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      opacity:.68;
+      animation:enter .45s .28s var(--ease) both;
     }
 
-    @media (max-width:370px){
-      h1{font-size:2.55rem}
+    @media (hover:hover) and (pointer:fine){
+      .service-card:hover{
+        transform:translateY(-2px);
+        background:var(--surface-hover);
+        border-color:var(--border-strong);
+        box-shadow:0 14px 36px rgba(0,0,0,.16);
+      }
+
+      .service-card.is-primary:hover{
+        background:#fff9ef;
+        border-color:#fff9ef;
+        box-shadow:0 22px 56px rgba(0,0,0,.22);
+      }
+
+      .service-card:hover .arrow{
+        transform:translateX(3px);
+        background:rgba(189,97,69,.16);
+        border-color:rgba(189,97,69,.22);
+      }
     }
 
     @media (min-width:700px){
-      main{padding-top:58px;padding-bottom:46px}
-      .photo{width:124px;height:124px}
-      .service-link{min-height:68px;padding:18px 21px}
+      main{padding-top:46px;padding-bottom:38px}
+      .photo{width:96px;height:96px}
+      .decision{margin-top:34px;margin-bottom:22px}
+      .service-card{min-height:96px;padding-inline:22px 20px}
+      .service-card.is-primary{min-height:108px}
+    }
+
+    @media (max-width:370px){
+      main{width:min(calc(100% - 24px),560px)}
+      .decision{margin-top:26px}
+      .service-card{padding-left:17px}
+      .problem{font-size:.95rem}
     }
 
     @media (prefers-reduced-motion:reduce){
-      *,*::before,*::after{scroll-behavior:auto!important;transition:none!important}
+      *,*::before,*::after{
+        scroll-behavior:auto!important;
+        animation:none!important;
+        transition:none!important;
+      }
+    }
+
+    @keyframes enter{
+      from{opacity:0;transform:translateY(8px)}
+      to{opacity:1;transform:translateY(0)}
     }
   </style>
 </head>
 <body>
   <main>
-    <section class="profile" aria-labelledby="profile-name">
-      <img class="photo" src="https://marketingdecria.com/estrategia/assets/team_00.jpeg" alt="Foto de Raíssa Lobo" width="124" height="124">
-      <h1 id="profile-name"><span class="first-name">Raíssa</span><span class="last-name">Lobo</span></h1>
+    <header class="profile">
+      <img class="photo" src="https://marketingdecria.com/estrategia/assets/team_00.jpeg" alt="Foto de Raíssa Lobo" width="96" height="96" fetchpriority="high">
+      <p class="profile-name" aria-label="Raíssa Lobo"><span>Raíssa</span><span class="last-name">Lobo</span></p>
       <p class="role">Estrategista de Monetização</p>
-      <p class="intro">Escolha o ponto do seu negócio que você quer resolver.</p>
+    </header>
+
+    <section class="decision" aria-labelledby="page-title">
+      <h1 id="page-title">Qual ponto do seu negócio precisa ser resolvido?</h1>
     </section>
 
-    <nav class="links" id="serviceLinks" aria-label="Serviços de Raíssa Lobo"></nav>
+    <nav class="links" aria-label="Escolha o ponto do negócio que precisa ser resolvido">
+      <a class="service-card is-primary" data-service="Diagnóstico de Monetização" href="https://wa.me/5524999080581?text=Oi%21%20N%C3%A3o%20consigo%20identificar%20exatamente%20o%20que%20est%C3%A1%20travando%20as%20vendas%20do%20meu%20neg%C3%B3cio%20e%20queria%20entender%20melhor%20isso." target="_blank" rel="noopener noreferrer" aria-label="Não consigo identificar o que está travando minhas vendas — falar no WhatsApp">
+        <span class="service-copy">
+          <span class="problem">Não consigo identificar o que está travando minhas vendas.</span>
+          <span class="service-name">Diagnóstico de Monetização</span>
+        </span>
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>
+
+      <a class="service-card" data-service="Sprint de Oferta" href="https://wa.me/5524999080581?text=Oi%21%20As%20pessoas%20at%C3%A9%20se%20interessam%20pelo%20que%20eu%20vendo%2C%20mas%20sinto%20que%20n%C3%A3o%20estou%20conseguindo%20demonstrar%20o%20valor.%20Queria%20entender%20como%20resolver%20isso." target="_blank" rel="noopener noreferrer" aria-label="As pessoas se interessam, mas não percebem o valor do que eu vendo — falar no WhatsApp">
+        <span class="service-copy">
+          <span class="problem">As pessoas se interessam, mas não percebem o valor do que eu vendo.</span>
+          <span class="service-name">Sprint de Oferta</span>
+        </span>
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>
+
+      <a class="service-card" data-service="Reativação de Base" href="https://wa.me/5524999080581?text=Oi%21%20Tenho%20contatos%20e%20oportunidades%20paradas%20no%20meu%20neg%C3%B3cio%20e%20queria%20entender%20como%20transformar%20essa%20base%20em%20novas%20vendas." target="_blank" rel="noopener noreferrer" aria-label="Tenho contatos e oportunidades paradas que poderiam virar vendas — falar no WhatsApp">
+        <span class="service-copy">
+          <span class="problem">Tenho contatos e oportunidades paradas que poderiam virar vendas.</span>
+          <span class="service-name">Reativação de Base</span>
+        </span>
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>
+
+      <a class="service-card" data-service="Campanha de Caixa" href="https://wa.me/5524999080581?text=Oi%21%20Quero%20criar%20uma%20campanha%20para%20gerar%20vendas%20em%20um%20per%C3%ADodo%20espec%C3%ADfico%20e%20queria%20entender%20a%20melhor%20forma%20de%20estruturar%20essa%20a%C3%A7%C3%A3o." target="_blank" rel="noopener noreferrer" aria-label="Quero criar uma campanha para gerar vendas em um período específico — falar no WhatsApp">
+        <span class="service-copy">
+          <span class="problem">Quero criar uma campanha para gerar vendas em um período específico.</span>
+          <span class="service-name">Campanha de Caixa</span>
+        </span>
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>
+
+      <a class="service-card" data-service="Arquitetura de Monetização" href="https://wa.me/5524999080581?text=Oi%21%20Meu%20marketing%20e%20minhas%20vendas%20est%C3%A3o%20desconectados%20e%20eu%20queria%20entender%20como%20organizar%20essa%20estrutura%20para%20as%20partes%20trabalharem%20juntas." target="_blank" rel="noopener noreferrer" aria-label="Meu marketing e minhas vendas estão desconectados — falar no WhatsApp">
+        <span class="service-copy">
+          <span class="problem">Meu marketing e minhas vendas estão desconectados.</span>
+          <span class="service-name">Arquitetura de Monetização</span>
+        </span>
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>
+    </nav>
 
     <footer>ARTHA</footer>
   </main>
 
-  <script>
-    const profile = {
-      name: 'Raíssa Lobo',
-      whatsapp: '5524999080581'
-    };
-
-    const services = [
-      'Diagnóstico de Monetização',
-      'Sprint de Oferta',
-      'Reativação de Base',
-      'Campanha de Caixa',
-      'Arquitetura de Monetização'
-    ];
-
-    const container = document.getElementById('serviceLinks');
-
-    services.forEach((service,index) => {
-      const message = `Olá, gostaria de saber mais sobre o serviço ${service}.`;
-      const url = `https://wa.me/${profile.whatsapp}?text=${encodeURIComponent(message)}`;
-
-      const link = document.createElement('a');
-      link.className = `service-link${index === 0 ? ' is-featured' : ''}`;
-      link.href = url;
-      link.target = '_blank';
-      link.rel = 'noopener noreferrer';
-      link.setAttribute('aria-label', `${service} — falar no WhatsApp`);
-      link.innerHTML = `<span class="service-name">${service}</span><span class="arrow" aria-hidden="true">→</span>`;
-      container.appendChild(link);
-    });
-
-    // GOOGLE TAG MANAGER / GOOGLE ANALYTICS / META PIXEL
-    // Insira aqui os scripts quando os IDs estiverem definidos.
-  </script>
+  <!-- GOOGLE TAG MANAGER / GOOGLE ANALYTICS / META PIXEL -->
+  <!-- Insira aqui os scripts quando os IDs estiverem definidos. -->
 </body>
 </html>
